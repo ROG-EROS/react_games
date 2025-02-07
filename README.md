@@ -1,3 +1,32 @@
+# Tic-Tac-Toe React Game  
+
+[![GitHub license](https://img.shields.io/github/license/ROG-EROS/react_games/tic-tac-toe-react)](https://github.com/ROG-EROS/react_games/tic-tac-toe/blob/main/LICENSE)  
+[![GitHub stars](https://img.shields.io/github/stars/ROG-EROS/react_games/tic-tac-toe)](https://github.com/ROG-EROS/react_games/tic-tac-toe/stargazers)  
+[![GitHub issues](https://img.shields.io/github/issues/your-username/tic-tac-toe-react)](https://github.com/ROG-EROS/react_games/tic-tac-toe/issues)  
+
+A simple and interactive Tic-Tac-Toe game built with **React**. This project is a great example of how to use React components, state management, and event handling.  
+
+---  
+
+## **Live Demo**  
+
+👉 [Play the game here](https://react-games-tau.vercel.app) 
+
+---  
+
+## **Features**  
+
+- ✅ Play Tic-Tac-Toe with two players.  
+- ✅ Reset the game at any time.  
+- ✅ Displays the winner or if the game ends in a draw.  
+- ✅ Responsive design for mobile and desktop.  
+
+---  
+
+## **Technologies Used**  
+
+- [React.js](https://reactjs.org/) - JavaScript library for building user interfaces.  
+- [JavaScript](https://developer.mozilla.org/en-US
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
