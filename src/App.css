@@ -1,0 +1,40 @@
+.board {  
+  display: grid;  
+  grid-template-columns: repeat(3, 100px);  
+  grid-template-rows: repeat(3, 100px);  
+  gap: 5px;  
+}  
+.reset-button {  
+  margin-top: 20px;  
+  padding: 10px 20px;  
+  font-size: 16px;  
+  background-color: #007bff;  
+  color: white;  
+  border: none;  
+  border-radius: 5px;  
+  cursor: pointer;  
+}  
+
+.reset-button:hover {  
+  background-color: #0056b3;  
+}
+.square {  
+  width: 100px;  
+  height: 100px;  
+  font-size: 24px;  
+  display: flex;  
+  align-items: center;  
+  justify-content: center;  
+  background-color: #f0f0f0;  
+  border: 1px solid #ccc;  
+  cursor: pointer;  
+}  
+
+.square:hover {  
+  background-color: #e0e0e0;  
+}  
+
+.status {  
+  margin-bottom: 20px;  
+  font-size: 20px;  
+}
