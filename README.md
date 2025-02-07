@@ -1,32 +1,82 @@
-# Tic-Tac-Toe React Game  
+# React Games  
 
-[![GitHub license](https://img.shields.io/github/license/ROG-EROS/react_games/tic-tac-toe-react)](https://github.com/ROG-EROS/react_games/tic-tac-toe/blob/main/LICENSE)  
-[![GitHub stars](https://img.shields.io/github/stars/ROG-EROS/react_games/tic-tac-toe)](https://github.com/ROG-EROS/react_games/tic-tac-toe/stargazers)  
-[![GitHub issues](https://img.shields.io/github/issues/your-username/tic-tac-toe-react)](https://github.com/ROG-EROS/react_games/tic-tac-toe/issues)  
+[![GitHub license](https://img.shields.io/github/license/ROG-EROS/react_games)](https://github.com/ROG-EROS/react_games/blob/main/LICENSE)  
+[![GitHub stars](https://img.shields.io/github/stars/ROG-EROS/react_games)](https://github.com/ROG-EROS/react_games/stargazers)  
+[![GitHub issues](https://img.shields.io/github/issues/ROG-EROS/react_games)](https://github.com/ROG-EROS/react_games/issues)  
 
-A simple and interactive Tic-Tac-Toe game built with **React**. This project is a great example of how to use React components, state management, and event handling.  
+A collection of simple and interactive games built with **React**. This repository includes games like Tic-Tac-Toe and more, showcasing how to use React components, state management, and event handling.  
 
 ---  
 
 ## **Live Demo**  
 
-👉 [Play the game here](https://react-games-tau.vercel.app) 
+👉 [Play the games here](https://react-games-tau.vercel.app/)  
 
 ---  
 
-## **Features**  
+## **Games Included**  
 
-- ✅ Play Tic-Tac-Toe with two players.  
-- ✅ Reset the game at any time.  
-- ✅ Displays the winner or if the game ends in a draw.  
-- ✅ Responsive design for mobile and desktop.  
+1. **Tic-Tac-Toe**  
+   - Play Tic-Tac-Toe with two players.  
+   - Reset the game at any time.  
+   - Displays the winner or if the game ends in a draw.  
 
 ---  
 
 ## **Technologies Used**  
 
 - [React.js](https://reactjs.org/) - JavaScript library for building user interfaces.  
-- [JavaScript](https://developer.mozilla.org/en-US
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Programming language.  
+- [HTML](https://developer.mozilla.org/en-US/docs/Web/HTML) - Markup language for structuring the app.  
+- [CSS](https://developer.mozilla.org/en-US/docs/Web/CSS) - Styling the app.  
+- [Vercel](https://vercel.com/) - Deployment platform for frontend frameworks and static sites.  
+
+---  
+
+## **How to Play**  
+
+1. The game consists of a 3x3 grid.  
+2. Player 1 is **X** and Player 2 is **O**.  
+3. Players take turns clicking on the grid to place their symbol.  
+4. The first player to get 3 of their symbols in a row (horizontally, vertically, or diagonally) wins.  
+5. If all squares are filled and no one wins, the game is a draw.  
+6. Click the **Reset Game** button to start a new game.  
+
+---  
+
+## **Project Structure**  
+
+Here’s how the project is organized:
+
+react_games/
+├── public/ # Public assets (HTML, images, etc.)
+├── src/ # Source files
+│ ├── components/ # React components (Square, Board, Game)
+│ ├── App.js # Main app component
+│ ├── App.css # App styles
+│ ├── index.js # Entry point
+│ └── index.css # Global styles
+├── .gitignore # Files/folders ignored by Git
+├── package.json # Project dependencies and scripts
+├── README.md # This file
+└── LICENSE # License file
+
+
+---  
+
+## **How to Run Locally**  
+
+1. **Clone the repository**:  
+
+   ```bash  
+   git clone https://github.com/ROG-EROS/react_games.git
+
+
+###  `cd react_games`
+
+###  `npm install`
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
