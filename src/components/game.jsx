@@ -19,17 +19,59 @@ function Game() {
   const vsAI = gameMode === GAME_MODES.REGULAR_AI || gameMode === GAME_MODES.MODIFIED_AI;
   const disappearing = gameMode === GAME_MODES.MODIFIED_2P || gameMode === GAME_MODES.MODIFIED_AI;
 
-  // Simple AI: pick a random empty square
-  function aiMove(board) {
-    const emptyIndices = board
-      .map((val, idx) => (val == null ? idx : null))
-      .filter((v) => v != null);
-
-    if (emptyIndices.length === 0) return { newBoard: board, moveIndex: null };
-    const move = emptyIndices[Math.floor(Math.random() * emptyIndices.length)];
+  // --- MINIMAX AI WITH ALPHA-BETA PRUNING ---
+  function bestMove(board) {
+    let bestScore = -Infinity;
+    let move = null;
+    for (let i = 0; i < 9; i++) {
+      if (board[i] == null) {
+        board[i] = "O";
+        let score = minimax(board, 0, false, -Infinity, Infinity);
+        board[i] = null;
+        if (score > bestScore) {
+          bestScore = score;
+          move = i;
+        }
+      }
+    }
     const newBoard = [...board];
-    newBoard[move] = "O";
+    if (move !== null) newBoard[move] = "O";
     return { newBoard, moveIndex: move };
+  }
+
+  function minimax(board, depth, isMaximizing, alpha, beta) {
+    const scores = { X: -10, O: 10, draw: 0 };
+    const winner = calculateWinner(board);
+    if (winner) return scores[winner];
+    if (board.every((square) => square)) return scores.draw;
+
+    if (isMaximizing) {
+      let bestScore = -Infinity;
+      for (let i = 0; i < 9; i++) {
+        if (board[i] == null) {
+          board[i] = "O";
+          let score = minimax(board, depth + 1, false, alpha, beta);
+          board[i] = null;
+          bestScore = Math.max(bestScore, score);
+          alpha = Math.max(alpha, bestScore);
+          if (beta <= alpha) break;
+        }
+      }
+      return bestScore;
+    } else {
+      let bestScore = Infinity;
+      for (let i = 0; i < 9; i++) {
+        if (board[i] == null) {
+          board[i] = "X";
+          let score = minimax(board, depth + 1, true, alpha, beta);
+          board[i] = null;
+          bestScore = Math.min(bestScore, score);
+          beta = Math.min(beta, bestScore);
+          if (beta <= alpha) break;
+        }
+      }
+      return bestScore;
+    }
   }
 
   // Handle AI turn
@@ -41,12 +83,12 @@ function Game() {
       board.some((v) => v == null)
     ) {
       const timer = setTimeout(() => {
-        const { newBoard, moveIndex } = aiMove(board);
+        const { newBoard, moveIndex } = bestMove(board);
         if (moveIndex !== null) {
           handleMove(newBoard, moveIndex, false);
           setIsXNext(true);
         }
-      }, 500);
+      }, 400);
       return () => clearTimeout(timer);
     }
     // eslint-disable-next-line
@@ -57,7 +99,6 @@ function Game() {
     if (disappearing) {
       if (isX) {
         let nextXMoves = [...xMoves, moveIndex];
-        // After 4th, 8th, ... move, remove X's oldest move
         if (nextXMoves.length % 4 === 0) {
           const removeIdx = nextXMoves[0];
           updatedBoard = [...updatedBoard];
@@ -68,7 +109,6 @@ function Game() {
         setXMoves(nextXMoves);
       } else {
         let nextOMoves = [...oMoves, moveIndex];
-        // After 4th, 8th, ... move, remove O's oldest move
         if (nextOMoves.length % 4 === 0) {
           const removeIdx = nextOMoves[0];
           updatedBoard = [...updatedBoard];
